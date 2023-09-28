@@ -4,6 +4,7 @@ package com.example.appli.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -52,6 +53,19 @@ public class JoueurRepository {
             Joueur.class
         );
         return response.getBody();
+    }
+
+    // Ajouter un joueur
+    public Joueur addJoueur(Joueur e) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<Joueur> request = new HttpEntity<Joueur>(e);
+        ResponseEntity<Joueur> response = restTemplate.exchange(
+            baseUrlApi + "/player", 
+            HttpMethod.POST, 
+            request, 
+            Joueur.class
+            );
+            return response.getBody();
     }
 
 }

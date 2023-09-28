@@ -24,4 +24,8 @@ public class JoueurService {
         return joueurRepository.getJoueurById(id);
     }
 
+    public Joueur saveJoueur(Joueur joueur) {
+        return joueurRepository.addJoueur(joueur);
+    }
+
 }
