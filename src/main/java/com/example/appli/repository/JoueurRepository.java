@@ -68,4 +68,9 @@ public class JoueurRepository {
             return response.getBody();
     }
 
+    // Supprimer un joueur
+    // public Boolean deleteJoueur(Joueur e) {
+
+    // }
+
 }

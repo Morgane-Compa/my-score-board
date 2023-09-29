@@ -35,7 +35,7 @@ public class JoueurController {
     public String ajouter(Model model) {
         Joueur joueur = new Joueur();
         model.addAttribute("joueur", joueur);
-        return "joueur/form";
+        return "joueurs/form";
     }
 
     @PostMapping("/joueur/ajouter")
@@ -43,4 +43,6 @@ public class JoueurController {
         joueurService.saveJoueur(joueur);
         return new ModelAndView("redirect:/joueurs");
     }
+
+    
 }
