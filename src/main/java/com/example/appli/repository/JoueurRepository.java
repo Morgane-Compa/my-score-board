@@ -33,10 +33,10 @@ public class JoueurRepository {
         // L'objet de la classe RestTemplate fait des requetes HTTP et convertit le JSON retourné par la requête java.
         RestTemplate RestTemplate = new RestTemplate();
         ResponseEntity<Iterable<Joueur>> reponse = RestTemplate.exchange(
-            getPlayerUrl, 
-            HttpMethod.GET,
-            null,
-            new ParameterizedTypeReference<Iterable<Joueur>>() {}
+            getPlayerUrl, //url de la requete
+            HttpMethod.GET, //la methode
+            null, //on envoie les donnée correspondant a un joueur
+            new ParameterizedTypeReference<Iterable<Joueur>>() {} //la réponse
             );
 
             return reponse.getBody();
@@ -69,8 +69,17 @@ public class JoueurRepository {
     }
 
     // Supprimer un joueur
-    // public Boolean deleteJoueur(Joueur e) {
+//   public Boolean addJoueur(long id) {
+//         RestTemplate restTemplate = new RestTemplate();
+//         HttpEntity<Joueur> request = new HttpEntity<Joueur>(e);
+//         ResponseEntity<Joueur> response = restTemplate.exchange(
+//             baseUrlApi + "/player", 
+//             HttpMethod.DELETE, 
+//             null, 
+//             boolean.class
+//             );
+//             return response.getBody();
+//     }
 
-    // }
 
 }
