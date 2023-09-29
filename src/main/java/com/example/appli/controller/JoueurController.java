@@ -17,6 +17,7 @@ public class JoueurController {
     @Autowired
     JoueurService joueurService;
 
+    // Récupérer les jeux
     @GetMapping("/joueurs")
     public String joueurs(Model model) {
         Iterable<Joueur> joueurs = joueurService.getJoueurs();

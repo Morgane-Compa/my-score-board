@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.appli.configuration.CustomProperties;
 import com.example.appli.model.Jeux;
-import com.example.appli.model.Joueur;
 
 @Component
 public class JeuxRepository {
