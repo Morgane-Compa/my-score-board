@@ -48,5 +48,7 @@ public class JeuxController {
         return new ModelAndView("redirect:/jeux");
     }
 
+    // @GetMapping("/recherche")
+    // public 
     
 }

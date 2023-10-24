@@ -32,6 +32,7 @@ public class JoueurController {
         return "joueurs/fiche";
     }
 
+    // Ajouter un joueur
     @GetMapping("/joueur/ajouter")
     public String ajouter(Model model) {
         Joueur joueur = new Joueur();
@@ -45,5 +46,32 @@ public class JoueurController {
         return new ModelAndView("redirect:/joueurs");
     }
 
-    
+    // Supprimer un joueur
+    @GetMapping("/joueur/{id}/supprimer")
+    public String supprimer(@PathVariable("id") long id, Model model) {
+        Joueur j = joueurService.getJoueur(id);
+        model.addAttribute("joueur", j);
+        return "joueurs/supprimer";
+    }
+
+    @PostMapping("/joueur/{id}/supprimer")
+    public ModelAndView validerSuprimer(@PathVariable("id") long id) {
+        joueurService.deleteJoueur(id);
+        return new ModelAndView("redirect:/joueurs");
+    }
+
+    // Modifier un joueur
+    @GetMapping("/joueur/{id}/modifier")
+    public String modifier(@PathVariable("id") long id, Model model) {
+        Joueur j = joueurService.getJoueur(id);
+        model.addAttribute("joueur", j);
+       return "joueurs/form";
+    }
+
+    @PostMapping(value="/joueur/{id}/modifier")
+    public ModelAndView validerModification(@PathVariable Long id, @ModelAttribute Joueur j) {
+        j.setId(id);
+        joueurService.updateJoueur(j);
+        return new ModelAndView("redirect:/joueurs");
+    }
 }

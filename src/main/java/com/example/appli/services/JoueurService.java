@@ -28,4 +28,13 @@ public class JoueurService {
         return joueurRepository.addJoueur(joueur);
     }
 
+    // Supprime une joueur
+    public boolean deleteJoueur(long id) {
+        return joueurRepository.deleteJoueur(id);
+    }
+
+    // Modifie un joueur
+    public Joueur updateJoueur(Joueur joueur) {
+        return joueurRepository.updateJoueur(joueur);
+    }
 }

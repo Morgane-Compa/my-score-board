@@ -69,17 +69,27 @@ public class JoueurRepository {
     }
 
     // Supprimer un joueur
-//   public Boolean addJoueur(long id) {
-//         RestTemplate restTemplate = new RestTemplate();
-//         HttpEntity<Joueur> request = new HttpEntity<Joueur>(e);
-//         ResponseEntity<Joueur> response = restTemplate.exchange(
-//             baseUrlApi + "/player", 
-//             HttpMethod.DELETE, 
-//             null, 
-//             boolean.class
-//             );
-//             return response.getBody();
-//     }
+  public Boolean deleteJoueur(long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Boolean> response = restTemplate.exchange(
+            baseUrlApi + "/player/" + id, 
+            HttpMethod.DELETE, 
+            null, 
+            boolean.class
+            );
+            return response.getBody();
+    }
 
+    public Joueur updateJoueur(Joueur j){
+        String url = this.baseUrlApi + "/player/" + j.getId();
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Joueur> response = restTemplate.exchange(
+            url,
+            HttpMethod.PUT,
+            new HttpEntity<Joueur>(j),
+            Joueur.class
+        );
+        return response.getBody();
+    }
 
 }
