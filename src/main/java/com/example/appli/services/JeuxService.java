@@ -19,15 +19,28 @@ public class JeuxService {
         return jeuxRepository.getAllJeux();
     }
 
-    //Pour récupérer un seul jeu
+    // Pour récupérer un seul jeu
     public Jeux getJeu(long id) {
         return jeuxRepository.getJeuById(id);
     }
 
-    //Pour ajouter un jeu
+    // Pour ajouter un jeu
     public Jeux saveJeu(Jeux jeux) {
         return jeuxRepository.addJeu(jeux);
     }
 
+    // Pour supprimer un jeu
+    public boolean deleteJeu(long id) {
+        return jeuxRepository.deleteJeu(id);
+    }
 
+    // Pour modifier un jeu
+    public Jeux updateJeu(Jeux j) {
+        return jeuxRepository.updateJeu(j);
+    }
+
+    // Pour chercher un jeu
+    public Iterable<Jeux> searchJeu(String word) {
+        return jeuxRepository.searchJeu(word);
+    }
 }

@@ -80,6 +80,7 @@ public class JoueurRepository {
             return response.getBody();
     }
 
+    // Modifier un joueur
     public Joueur updateJoueur(Joueur j){
         String url = this.baseUrlApi + "/player/" + j.getId();
         RestTemplate restTemplate = new RestTemplate();
